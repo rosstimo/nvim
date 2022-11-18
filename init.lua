@@ -1,0 +1,13 @@
+require("settings")
+require("keymaps")
+require("keymaps.barbar")
+require("plugin.packerConfig")
+require("plugin.luaLineConfig")
+require("plugin.barbarConfig")
+require("plugin.treeSitterConfig")
+require("plugin.tsRainbowConfig")
+require("plugin.nvimTreeConfig")
+require("plugin.LSP")
+require("plugin.colorizerConfig")
+-- print("hello,sucka!!")
+
