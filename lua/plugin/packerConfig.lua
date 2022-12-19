@@ -28,11 +28,17 @@ return require('packer').startup(function(use)
 	use("williamboman/nvim-lsp-installer") --> Companion plugin for lsp-config, allows us to seamlesly install language servers
 	use("hrsh7th/nvim-cmp") --> Autocompletion plugin
 	use("hrsh7th/cmp-nvim-lsp") --> LSP source for nvim-cmp
+	use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
+	use("tami5/lspsaga.nvim") --> icons for LSP diagnostics
+	use("onsails/lspkind-nvim") --> vscode-like pictograms for neovim lsp completion items
 	use("saadparwaiz1/cmp_luasnip") --> Snippets source for nvim-cmp
+	use("L3MON4D3/LuaSnip") --> Snippets plugin
 
  --> treesitter & treesitter modules/plugins
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --> treesitter 
   use 'p00f/nvim-ts-rainbow' -- rainbow braces
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
