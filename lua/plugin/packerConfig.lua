@@ -23,6 +23,10 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua' -- file explorer/tree
   use 'norcalli/nvim-colorizer.lua' -- hilight color codes
 
+  use('mbbill/undotree')
+  use('tpope/vim-fugitive')
+
+
   -- Language Server
   use("neovim/nvim-lspconfig") --> Collection of configurations for built-in LSP client
 	use("williamboman/nvim-lsp-installer") --> Companion plugin for lsp-config, allows us to seamlesly install language servers
@@ -36,6 +40,7 @@ return require('packer').startup(function(use)
 
  --> treesitter & treesitter modules/plugins
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --> treesitter 
+  use('nvim-treesitter/playground')
   use 'p00f/nvim-ts-rainbow' -- rainbow braces
 
 
