@@ -12,6 +12,12 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 map("v", "L", ">gv", opts)
 map("v", "H", "<gv", opts)
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
 -- Clipboard Copy/Paste
 -- use CTRL-c to copy in visual mode
 map('v', '<C-c>' , '"*y :let @+=@* <CR>', opts)

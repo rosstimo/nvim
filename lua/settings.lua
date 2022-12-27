@@ -1,40 +1,45 @@
---use variable 'set' instead of vim.opt
-local set  =  vim.opt
+--use variable 'vim.opt' instead of vim.opt
 
 --turn on line numbers
 --editor/interface stuff
-set.number = true
-set.relativenumber = true
-set.cursorline = true
-set.showmode = true
-set.splitright = true
-set.splitbelow = true
-set.breakindent = true
-set.wrap = false
-set.scrolloff = 5
-set.fileencoding = "utf-8"
-set.hidden = true
-set.mouse = "a"
-set.clipboard = "unnamed"
-set.clipboard:append("unnamedplus")
+vim.opt.number = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.showmode = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.breakindent = true
+vim.opt.wrap = false
+vim.opt.scrolloff = 5
+vim.opt.fileencoding = "utf-8"
+vim.opt.hidden = true
+vim.opt.mouse = "a"
+vim.opt.clipboard = "unnamed"
+vim.opt.clipboard:append("unnamedplus")
+vim.cmd [[colorscheme onedark]]
+
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+ vim.cmd [[colorscheme onedark]] end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 --make Tabs into 2 spaces
-set.smarttab = true
-set.tabstop = 2
-set.softtabstop = 2
-set.shiftwidth = 2
-set.expandtab = true
+vim.opt.smarttab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 --serch options
-set.hlsearch = true
-set.incsearch = true
-set.wildmenu = true
-set.completeopt = "menuone,preview,noselect"
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.wildmenu = true
+vim.opt.completeopt = "menuone,preview,noselect"
 vim.opt.path:append("**")
 
---notify
-set.termguicolors = true
-vim.notify = require("notify")
-require("notify").setup({
-  background_colour = "#000000",
-})
