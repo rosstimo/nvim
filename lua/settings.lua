@@ -4,28 +4,20 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.colorcolumn = "80"
 vim.opt.showmode = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.breakindent = true
 vim.opt.wrap = false
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 15
 vim.opt.fileencoding = "utf-8"
 vim.opt.hidden = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamed"
 vim.opt.clipboard:append("unnamedplus")
+vim.opt.signcolumn = "auto:1-9" --sign column width min:1 max:9
 vim.cmd [[colorscheme onedark]]
-
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
- vim.cmd [[colorscheme onedark]] end,
-  group = highlight_group,
-  pattern = '*',
-})
 
 --make Tabs into 2 spaces
 vim.opt.smarttab = true
@@ -41,7 +33,19 @@ vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone,preview,noselect"
 vim.opt.path:append("**")
 
+--undo and backup 
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
+
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+    vim.cmd [[colorscheme onedark]] end,
+  group = highlight_group,
+  pattern = '*',
+})
+
