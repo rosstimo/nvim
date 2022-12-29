@@ -210,7 +210,7 @@ list = { -- begin mappings
       },
       git = {
         enable = true,
-        ignore = true,
+        ignore = false, --hide git ignored
         show_on_dirs = true,
         show_on_open_dirs = true,
         timeout = 400,

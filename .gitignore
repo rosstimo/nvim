@@ -40,8 +40,10 @@ luac.out
 *.hex
 
 # ignore compiled plugin dir
-plugin*
-ignore*
-
-#ignore files ending with '~` I use for backups
+/plugin*
+# ignore anything placed in ignore dir
+ignore/*
+# ignore undodir
+undodir*
+# ignore files ending with '~` I use for backups
 *~

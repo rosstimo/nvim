@@ -1,8 +1,6 @@
 --use variable 'vim.opt' instead of vim.opt
 
---turn on line numbers
 --editor/interface stuff
-vim.opt.number = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -43,3 +41,7 @@ vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone,preview,noselect"
 vim.opt.path:append("**")
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+vim.opt.undofile = true
