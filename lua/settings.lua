@@ -16,7 +16,7 @@ vim.opt.hidden = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamed"
 vim.opt.clipboard:append("unnamedplus")
-vim.opt.signcolumn = "auto:1-9" --sign column width min:1 max:9
+vim.opt.signcolumn = "auto:1-2" --sign column width min:1 max:9
 vim.cmd [[colorscheme onedark]]
 
 --make Tabs into 2 spaces
