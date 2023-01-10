@@ -26,7 +26,7 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
---serch options
+--search options
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.wildmenu = true
@@ -49,3 +49,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- spell check
+vim.opt.spelllang = "en"
+vim.opt.spellsuggest = "best, 9"

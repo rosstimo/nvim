@@ -3,6 +3,8 @@ local opts = { noremap = true, silent = true}
 
 vim.g.mapleader = ' ' -- leader key to space
 
+map("n", "<leader>pl", ":source /home/tim/.config/nvim/init.lua<CR>",opts)
+
 map("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 map("n", "<leader>gt", ":NvimTreeFocus<CR>", opts)
 
