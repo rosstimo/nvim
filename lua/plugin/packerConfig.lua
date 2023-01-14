@@ -30,7 +30,8 @@ use { -- LSP Configuration & Plugins
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip',
+      'onsails/lspkind-nvim' --> vscode-like pictograms for neovim lsp completion items
     },
   }
 
@@ -79,8 +80,7 @@ use { -- Highlight, edit, and navigate code
 	-- use("hrsh7th/cmp-nvim-lsp") --> LSP source for nvim-cmp
 	-- use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
 	-- use("tami5/lspsaga.nvim") --> icons for LSP diagnostics
-	-- use("onsails/lspkind-nvim") --> vscode-like pictograms for neovim lsp completion items
-	-- use("saadparwaiz1/cmp_luasnip") --> Snippets source for nvim-cmp
+  -- use("saadparwaiz1/cmp_luasnip") --> Snippets source for nvim-cmp
 	-- use("L3MON4D3/LuaSnip") --> Snippets plugin
 	--
  --> treesitter & treesitter modules/plugins
