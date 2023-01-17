@@ -1,5 +1,5 @@
 require("gui") -- statusline, tabs, notify, theme, etc.
-require("fzf") -- fuzzy finder: nvim-telescope
+require("finder") -- fuzzy finder: nvim-telescope
 require("settings")
 require("keymaps")
 -- plugin manager
