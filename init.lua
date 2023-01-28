@@ -8,7 +8,7 @@ require("plugin.packerConfig")
 -- gui
 --require("plugin.notifyConfig")
 --require("plugin.barbarConfig")
-require("keymaps.barbar")
+--require("keymaps.barbar")
 --require("plugin.luaLineConfig")
 --require("plugin.indentBlankLineConfig")
 --require("plugin.oneDarkConfig")
