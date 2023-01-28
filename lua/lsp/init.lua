@@ -7,7 +7,6 @@ local on_attach = function(_, bufnr)
     if desc then
       desc = 'LSP: ' .. desc
     end
-
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
@@ -57,7 +56,7 @@ local servers = {
 
 -- Setup neovim lua configuration
 require('neodev').setup()
---
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -82,4 +81,7 @@ mason_lspconfig.setup_handlers {
 -- Turn on lsp status information
 require('fidget').setup()
 
-
+-- completion
+require("lsp.nvim-cmp")
+-- symbols
+require("lsp.lspkind")

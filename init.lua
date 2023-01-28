@@ -16,9 +16,9 @@ require("plugin.packerConfig")
 --require("plugin.nvimTreeConfig")
 --require("plugin.commentConfig")
 -- lsp
-require("plugin.lsp")
-require("plugin.lsp.nvim-cmp")
-require("plugin.lsp.lspkind")
+require("lsp")
+-- require("plugin.lsp.nvim-cmp")
+-- require("plugin.lsp.lspkind")
 -- lint
 require("plugin.treeSitterConfig")
 require("plugin.tsRainbowConfig")
