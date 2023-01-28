@@ -20,10 +20,10 @@ require("lsp")
 -- require("plugin.lsp.nvim-cmp")
 -- require("plugin.lsp.lspkind")
 -- lint
-require("plugin.treeSitterConfig")
-require("plugin.tsRainbowConfig")
-require("plugin.colorizerConfig")
-require("plugin.gitSignsConfig")
+-- require("plugin.treeSitterConfig")
+-- require("plugin.tsRainbowConfig")
+-- require("plugin.colorizerConfig")
+-- require("plugin.gitSignsConfig")
 -- fzf
 --require("plugin.telescopeConfig")
 
