@@ -1,8 +1,8 @@
 require("gui") -- statusline, tabs, notify, theme, etc.
-require("finder") -- fuzzy finder: nvim-telescope
 require("lint") -- highlighting, symbols etc. : treesitter
 require("settings")
 require("keymaps")
+require("finder") -- fuzzy finder: nvim-telescope
 -- plugin manager
 require("plugin.packerConfig")
 -- gui

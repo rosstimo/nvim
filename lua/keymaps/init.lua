@@ -26,7 +26,7 @@ end
      be compiled. a clean fail and notification at least.
 --]]
 local function texCompile ()
-  os.execute("compiler " .. vim.fn.expand("%") .. " > /dev/null && " ..
+  os.execute("compiler " .. vim.fn.expand("%") ..  " > out.log && " ..
              "texclear " .. vim.fn.expand("%") .. " > /dev/null")
   require("notify")("compiling \n" .. vim.fn.expand("%") )
 end
