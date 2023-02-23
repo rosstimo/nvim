@@ -22,5 +22,9 @@ vim.notify = require("notify").setup({
   top_down = true
 
 })
---vim.notify("This is an error message", "error")
+--vim.notify("Notifications are on!!", "error")
 
+-- require("notify")("hello")
+-- require("notify")("the message",2, {title = "Title", icon = "", timeout = 1000, render = "default"})
+-- require("notify")("the message",2, {title = "Title", icon = "", timeout = 1000, render = "minimal"})
+-- require("notify")("the message",2, {title = "Title", icon = "", timeout = 1000, render = "simple"})

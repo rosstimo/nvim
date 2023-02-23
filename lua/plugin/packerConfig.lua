@@ -77,7 +77,6 @@ use { -- Highlight, edit, and navigate code
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-
   -- Language Server
  --  use("neovim/nvim-lspconfig") --> Collection of configurations for built-in LSP client
 	-- use("williamboman/nvim-lsp-installer") --> Companion plugin for lsp-config, allows us to seamlesly install language servers
