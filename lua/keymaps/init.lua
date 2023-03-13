@@ -3,7 +3,8 @@ local opts = { noremap = true, silent = true}
 
 vim.g.mapleader = ' ' -- leader key to space
 
-map("n", "<leader>pl", ":source /home/tim/.config/nvim/init.lua<CR>",opts)
+-- reload init.lua
+map("n", "<leader>r", ":source /home/tim/.config/nvim/init.lua<CR>",opts)
 
 map("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 map("n", "<leader>gt", ":NvimTreeFocus<CR>", opts)
@@ -15,9 +16,11 @@ map("v", "L", ">gv", opts)
 map("v", "H", "<gv", opts)
 
 -- commands
+
 local function mess ()
   require("notify")("My super important message") --vim.fn.expand("%")
   require("notify")(vim.fn.expand("%:r") .. ".pdf")
+  os.remove(vim.fn.expand("%:r") .. ".pdf")
 end
 
 --[[ compile the current buffer assumeing it is source code or a LaTeX file.
@@ -26,9 +29,16 @@ end
      be compiled. a clean fail and notification at least.
 --]]
 local function texCompile ()
-  os.execute("compiler " .. vim.fn.expand("%") ..  " > out.log && " ..
+  os.remove(vim.fn.expand("%:r") .. ".pdf")
+  os.execute("compiler " .. vim.fn.expand("%") ..  " > /dev/null && " ..
              "texclear " .. vim.fn.expand("%") .. " > /dev/null")
-  require("notify")("compiling \n" .. vim.fn.expand("%") )
+  require("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compiling...", icon ="", timeout = 1000, render = "default"})
+  local fileExists=io.open(vim.fn.expand("%:r") .. ".pdf")
+  if fileExists == nil then
+    require("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compile Error! - Check Logs", icon = "", timeout = 1000, render = "default"})
+  else
+    os.remove(vim.fn.expand("%:r") .. ".log")
+  end
 end
 
 --[[  open a pdf file with the same path/name as the current buffer
@@ -37,9 +47,14 @@ end
       on recompile so you don't have to close and reopen it.
 --]]
 local function texPdfPreview ()
-  os.execute("previewpdf " .. vim.fn.expand("%:r") .. ".pdf")
+  local file_name=vim.fn.expand("%:r") .. ".pdf"
+  local fileExists=io.open(file_name, "r")
+  if fileExists==nil then
+    require("notify")(file_name .. "", 2, {title = "Pdf Preview Error! - File Not Found", icon = "", timeout = 1000, render = "default"})
+  else
+    os.execute("previewpdf " .. vim.fn.expand("%:r") .. ".pdf")
+  end
 end
-
 
 vim.keymap.set('n',"<F3>", texCompile, opts)
 vim.keymap.set('n',"<F4>", mess, opts)
