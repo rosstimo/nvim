@@ -18,8 +18,9 @@ map("v", "H", "<gv", opts)
 -- commands
 
 local function mess ()
-  require("notify")("My super important message") --vim.fn.expand("%")
-  require("notify")(vim.fn.expand("%:r") .. ".pdf")
+  vim.notify("hello")
+  --require("notify")("My super important message") --vim.fn.expand("%")
+  vim.notify(vim.fn.expand("%:r") .. ".pdf")
   os.remove(vim.fn.expand("%:r") .. ".pdf")
 end
 
@@ -32,10 +33,12 @@ local function texCompile ()
   os.remove(vim.fn.expand("%:r") .. ".pdf")
   os.execute("compiler " .. vim.fn.expand("%") ..  " > /dev/null && " ..
              "texclear " .. vim.fn.expand("%") .. " > /dev/null")
-  require("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compiling...", icon ="", timeout = 1000, render = "default"})
+  --("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compiling...", icon ="", timeout = 1000, render = "default"})
+  vim.notify("Compiling: " .. vim.fn.expand("%:r") .. ".tex", 2)
   local fileExists=io.open(vim.fn.expand("%:r") .. ".pdf")
   if fileExists == nil then
-    require("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compile Error! - Check Logs", icon = "", timeout = 1000, render = "default"})
+    vim.notify("Compile Error!" .. vim.fn.expand("%:r") .. ".tex", 2)
+    --require("notify")(vim.fn.expand("%:r") .. ".tex", 2, {title = "Compile Error! - Check Logs", icon = "", timeout = 1000, render = "default"})
   else
     os.remove(vim.fn.expand("%:r") .. ".log")
   end
@@ -50,7 +53,8 @@ local function texPdfPreview ()
   local file_name=vim.fn.expand("%:r") .. ".pdf"
   local fileExists=io.open(file_name, "r")
   if fileExists==nil then
-    require("notify")(file_name .. "", 2, {title = "Pdf Preview Error! - File Not Found", icon = "", timeout = 1000, render = "default"})
+   vim.notify(file_name .. "", 2)
+    --require("notify")(file_name .. "", 2, {title = "Pdf Preview Error! - File Not Found", icon = "", timeout = 1000, render = "default"})
   else
     os.execute("previewpdf " .. vim.fn.expand("%:r") .. ".pdf")
   end
