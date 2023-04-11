@@ -65,7 +65,7 @@ use { -- Highlight, edit, and navigate code
   use 'nvim-tree/nvim-tree.lua' -- file explorer/tree
   use 'norcalli/nvim-colorizer.lua' -- hilight color codes
   use 'mbbill/undotree' --TODO
-  use 'rcarriga/nvim-notify' -- fancy notification popups
+  -- use 'rcarriga/nvim-notify' -- fancy notification popups
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
