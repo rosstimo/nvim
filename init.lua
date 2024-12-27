@@ -1,30 +1,37 @@
-require("gui") -- statusline, tabs, notify, theme, etc.
-require("lint") -- highlighting, symbols etc. : treesitter
-require("settings")
-require("keymaps")
-require("finder") -- fuzzy finder: nvim-telescope
--- plugin manager
-require("plugin.packerConfig")
--- gui
---require("plugin.notifyConfig")
---require("plugin.barbarConfig")
---require("keymaps.barbar")
---require("plugin.luaLineConfig")
---require("plugin.indentBlankLineConfig")
---require("plugin.oneDarkConfig")
---require("plugin.undoTreeConfig")
---require("plugin.nvimTreeConfig")
---require("plugin.commentConfig")
--- lsp
-require("lsp")
--- require("plugin.lsp.nvim-cmp")
--- require("plugin.lsp.lspkind")
--- lint
--- require("plugin.treeSitterConfig")
--- require("plugin.tsRainbowConfig")
--- require("plugin.colorizerConfig")
--- require("plugin.gitSignsConfig")
--- fzf
---require("plugin.telescopeConfig")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
